@@ -10,10 +10,9 @@ module.exports=class keDocomo {
     this.Context='';
     this.Site=site||'https://api.apigw.smt.docomo.ne.jp';
   }
-/**
+  /**
  * 雑談対話インターフェイス
  * @param  {String}   msg 対話メッセージ
- * @param  {Function} fn  対話データ返信処理(返信メッセージ、エラーコード)
  * @return {Void}         none
  * @method
  */
@@ -31,7 +30,7 @@ module.exports=class keDocomo {
     }
     return out;
   }
-/**
+  /**
  * 対話curlコマンド編集
  * @param  {String} data 送信メッセージ
  * @return {String}      curlコマンド
@@ -44,7 +43,7 @@ module.exports=class keDocomo {
     out+='-d \''+data+'\'';
     return out;
   }
-/**
+  /**
  * 知識QAインターフェイス
  * @param  {String}   msg 質問
  * @param  {Function} fn  回答対応処理(回答, エラーメッセージ)
@@ -78,11 +77,10 @@ module.exports=class keDocomo {
     out+='-H \'Content-type: application/json\'';
     return out;
   }
-/**
+  /**
  * 形態素、固定表現解析インターフェイス
  * @param  {String}   msg 文章・センテンス
- * @param  {Function} fn  解析後データ処理（解析オブジェクト, エラーメッセージ）
- * @return {Void}         none
+ * @return {Object}       分析結果
  * @method
  */
   analytics(msg) {
@@ -143,11 +141,10 @@ module.exports=class keDocomo {
     out+='-d '+data;
     return out;
   }
-/**
+  /**
  * カテゴリ分析インターフェイス
  * @param  {String}   msg 文章・センテンス
- * @param  {Function} fn  解析後処理(解析オブジェクト, エラーメッセージ)
- * @return {Void}         none
+ * @return {Object}       分析結果オブジェクト
  * @method
  */
   cluster(msg) {
